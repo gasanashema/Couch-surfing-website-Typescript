@@ -23,7 +23,7 @@ var reviews = [
     },
 ];
 // Solution
-function showReviewTotal(value) {
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + " last review was from " + reviews[0].name;
+function showReviewTotal(value, name, star) {
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + " | last review was from " + name + " ".concat(star ? '⭐' : '');
 }
-showReviewTotal(reviews.length);
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);

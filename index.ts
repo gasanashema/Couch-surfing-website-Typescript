@@ -26,9 +26,9 @@ const reviews = [
 ]
 
 // Solution
-function showReviewTotal (value : number, name : string) {
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + " last review was from " + name
+function showReviewTotal (value : number, name : string,star: boolean) {
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + " | last review was from " + name + ` ${star?'⭐':''}`;
 
 }
 
-showReviewTotal(reviews.length,reviews[0].name)
+showReviewTotal(reviews.length,reviews[0].name,reviews[0].loyaltyUser)
