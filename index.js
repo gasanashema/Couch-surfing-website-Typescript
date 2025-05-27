@@ -1,7 +1,6 @@
-// Number Types mini-challenge 10 10.2
-// Write a function that will only accept numbers and attend to 
-// all TypeScript weakness flags.
-// : number
+// String Types mini-challenge
+// Write a function that will display the most recent reviewers name next to the review total,
+// making sure to assign a type to the parameter, to prevent unwanted behaviour.
 var reviewTotalDisplay = document.querySelector('#reviews');
 var reviews = [
     {
@@ -23,7 +22,8 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
+// Solution
 function showReviewTotal(value) {
-    reviewTotalDisplay.innerHTML = 'Number of reviews: ' + value.toString();
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + " last review was from " + reviews[0].name;
 }
 showReviewTotal(reviews.length);
