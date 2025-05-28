@@ -36,15 +36,17 @@ function showReviewTotal (value : number, name : string,star: boolean) {
 showReviewTotal(reviews.length,reviews[0].name,reviews[0].loyaltyUser)
 
 const you: {
-    firstName : string;
-    lastName : string;
-    age : number;
+    firstName: string;
+    lastName: string;
     isReturning: boolean;
+    age: number;
+    stayedAt: (string | number)[];
 } = {
-   firstName: 'Bobby',
-   lastName: 'Brown',
-   age: 32,
-   isReturning: true,
+    firstName: 'Bobby',
+    lastName: 'Brown',
+    isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow', 23]
 }
 
 
