@@ -1,75 +1,54 @@
-// String Types mini-challenge
-// Write a function that will display the most recent reviewers name next to the review total,
-// making sure to assign a type to the parameter, to prevent unwanted behaviour.
+// Enum Types mini-challenge
+// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
+// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE 
+// and Omar SILVER.
+// 2. export the enum
+// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
 
-import {showReviewTotal,populateUser} from './utils.ts'
-let isOpen: boolean;
+import { showReviewTotal, populateUser } from './utils'
+import { Permissions,LoyaltyUser } from './enums'
 const propertyContainer = document.querySelector('.properties')
-const reviews: {
-  name: string;
-  stars: number;
-  loyaltyUser: boolean;
-  date: string;
-}[] = [
-  {
-    name: "Sheia",
-    stars: 5,
-    loyaltyUser: true,
-    date: "01-04-2021",
-  },
-  {
-    name: "Andrzej",
-    stars: 3,
-    loyaltyUser: false,
-    date: "28-03-2021",
-  },
-  {
-    name: "Omar",
-    stars: 4,
-    loyaltyUser: true,
-    date: "27-03-2021",
-  },
-];
+const footer = document.querySelector('.footer')
 
-// User
+let isOpen: boolean
 
-const you: {
-  firstName: string;
-  lastName: string;
-  isReturning: boolean;
-  age: number;
-  stayedAt: (string | number)[];
-} = {
-  firstName: "Bobby",
-  lastName: "Brown",
-  isReturning: true,
-  age: 35,
-  stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow", 23],
-};
+// Reviews
+const reviews : { 
+    name: string; 
+    stars: number; 
+    loyaltyUser: LoyaltyUser; 
+    date: string
+    }[] = [
+    {
+        name: 'Sheia',
+        stars: 5,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
+        date: '01-04-2021'
+    },
+    {
+        name: 'Andrzej',
+        stars: 3,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: '28-03-2021'
+    },
+    {
+        name: 'Omar',
+        stars: 4,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
+        date: '27-03-2021'
+    },
+]
 
-// property
-// const properties: {
-//     image:string;
-//     title:string;
-//     pricePerNight:number;
-//     address:string;
-//     city:string;
-//     zipCode:string;
-//     country:string;
-//     contacts:string;
-//     availableForRent:boolean;
-// }[] = [{
-//     image:"logo.png",
-//     title:"Couch",
-//     pricePerNight:15,
-//     address:'kigali',
-//     city:'kicukiro',
-//     zipCode:'0000',
-//     country:'kigali',
-//     contacts:'078888888',
-//     availableForRent:false,
-// }]
+const you = {
+    firstName: 'Bobby',
+    lastName: 'Brown',
+    permissions: Permissions.ADMIN,
+    isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
+}
 
+// Array of Properties
 const properties : {
     image: string;
     title: string;
@@ -80,7 +59,7 @@ const properties : {
         code: number;
         country: string;
     };
-    contact: [number, string];
+    contact: [ number, string ];
     isAvailable: boolean;
 }[] = [
     {
@@ -93,7 +72,7 @@ const properties : {
             code: 45632,
             country: 'Colombia'
         },
-        contact: [+1123495082908, 'marywinkle@gmail.com'],
+        contact: [+112343823978921, 'marywinkle@gmail.com'],
         isAvailable: true  
     },
     {
@@ -106,7 +85,7 @@ const properties : {
             code: 343903,
             country: 'Poland'
         },
-        contact: [+1123495082908, 'garydavis@hotmail.com'],
+        contact: [+1298239028490830, 'garydavis@hotmail.com'],
         isAvailable: false 
     },
     {
@@ -119,16 +98,17 @@ const properties : {
             code: 35433,
             country: 'United Kingdom',
         },
-        contact: [ +1123495082908, 'andyluger@aol.com'],
+        contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true
     }
 ]
 
+// Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
 
-//Add the properties
+// Add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
     card.classList.add('card')
@@ -138,3 +118,7 @@ for (let i = 0; i < properties.length; i++) {
     card.appendChild(image)
     propertyContainer.appendChild(card)
 }
+
+let currentLocation : [string, string, number] = ['London', '11.03', 17]
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+
