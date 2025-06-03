@@ -3,8 +3,8 @@ export enum Permissions {
     READ_ONLY = 'READ_ONLY'
 }
 
-export enum LoyaltyUser{
-    GOLD_USER = 'Gold', 
-    SILVER_USER = 'Silver',
-    BRONZE_USER = 'Bronze'
+export enum LoyaltyUser {
+    GOLD_USER = 'GOLD_USER',
+    SILVER_USER = 'SILVER_USER',
+    BRONZE_USER = 'BRONZE_USER'
 }
