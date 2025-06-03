@@ -1,5 +1,5 @@
-import {LoyaltyUser} from './'
-export interface Review {
+import {LoyaltyUser} from './enums'
+export default interface Review {
     name: string;
     stars: number;
     loyaltyUser: LoyaltyUser;
