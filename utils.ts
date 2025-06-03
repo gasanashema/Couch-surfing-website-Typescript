@@ -1,4 +1,4 @@
-import { Review } from './interfaces'
+import Review from './interfaces'
 
 const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')
@@ -42,12 +42,7 @@ export function makeMultiple(value: number) : string {
 }
 
 // Broken code
-export function getTopTwoReviews(reviews: {
-    name: string;
-    stars: number;
-    loyalyuser: LoyaltyUser;
-    date: string;
-}[]) : {
+export function getTopTwoReviews(reviews: Review[]) : {
     name: string;
     stars: number;
     loyalyuser: LoyaltyUser;
