@@ -5,7 +5,8 @@
 
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
-import { Review } from './interfaces'
+import Review from './interfaces'
+import {LoyaltyUser} from './enums'
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
@@ -18,11 +19,11 @@ enum Permissions {
     ADMIN = 'ADMIN', 
     READ_ONLY = 'READ_ONLY'
 }
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER'
-}
+// enum LoyaltyUser {
+//     GOLD_USER = 'GOLD_USER',
+//     SILVER_USER = 'SILVER_USER',
+//     BRONZE_USER = 'BRONZE_USER'
+// }
 
 
 // Reviews
@@ -149,3 +150,26 @@ button.addEventListener('click', () => addReviews(reviews))
 let currentLocation : [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
+//Classes
+// class Car {
+//     make: string
+//     year: number
+//     color: string
+//     constructor(make: string, year: number, color: string) {
+//         this.make = make
+//         this.year = year
+//         this.color = color
+//     }
+// }
+
+
+class MainProperty {
+    src: string
+    title: string
+    reviews: Review[]
+    constructor(src, title, reviews) {
+        this.src = src
+        this.title = title
+        this.reviews = reviews
+    }
+}
